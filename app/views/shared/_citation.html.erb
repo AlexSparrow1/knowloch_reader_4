@@ -1,0 +1,16 @@
+<table data-remote="true">
+<% @citations = @user.citations.all %>
+<% @citations.each do |citation| %>
+  <tr>
+    <td><%= citation.author %></td>
+    <td><%= citation.year %></td>
+    <td><%= citation.title %></td>
+	<td><%= citation.journal %></td>
+    <td><%= citation.volume %></td>
+    <td><%= citation.pages %></td>
+    <td><%= link_to 'Show', citation %></td>
+    <td id="editcitlink"><%= link_to 'Edit', edit_citation_path(citation) %></td>
+    <td id="deletecit"><%= link_to 'Delete', citation, confirm: 'Are you sure?', method: :delete, :remote => true %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,19 @@
+<h1>Listing citations</h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Year</th>
+    <th>Title</th>
+    <th>Volume</th>
+    <th>Pages</th>
+    <th>Abstract</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</table>
+
+<%= render :partial => 'citations', :locals => {:citations => @user.citations} %>
+
+<%= link_to 'New Citation', new_citation_path %>

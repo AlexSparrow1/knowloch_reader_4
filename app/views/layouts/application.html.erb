@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+   		<title><%= title %></title>
+		<%= stylesheet_link_tag "application" %>
+   		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag 'viewer', :media => 'screen' %>
+	    <%= javascript_include_tag "compatibility" %>
+	    <%= javascript_include_tag "pdf" %>	
+	  <script type="text/javascript">
+	    // Specify the main script used to create a new PDF.JS web worker.
+	    // In production, change this to point to the combined `pdf.js` file.
+	    PDFJS.workerSrc = 'assets/worker_loader.js';
+	  </script>
+	    <%= javascript_include_tag "viewer" %>
+		<%= render "layouts/stylesheets" %>
+		<%= csrf_meta_tags %>
+	</head>
+  	<body>
+    	<div class="container">
+      		<%= render "layouts/header" %>
+      		<section class="roundborder">
+        		<% flash.each do |key, value| %>
+          		<div class="flash <%= key %>"><%= value %></div>
+        		<% end %>
+        		<%= yield %>
+      		</section>
+      		<%= debug(params) if Rails.env.development? %>
+    	</div>
+    </body>
+</html>
