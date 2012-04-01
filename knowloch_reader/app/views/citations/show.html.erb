@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Author:</b>
+  <%= @citation.author %>
+</p>
+<p>
+  <b>Year:</b>
+  <%= @citation.year %>
+</p>
+<p>
+  <b>Title:</b>
+  <%= @citation.title %>
+</p>
+<p>
+  <b>Volume:</b>
+  <%= @citation.volume %>
+</p>
+<p>
+  <b>Pages:</b>
+  <%= @citation.pages %>
+</p>
+<p>
+  <b>Abstract:</b>
+  <%= @citation.abstract %>
+</p>
+
+<button id="showpdf">Read Article</button>
+
+<button id="editbutton">Edit</button>
+<%= link_to 'Back', user_path(@citation.user) %>
+
+<div id="pdfview" onload="load('/system/pdfs/9/original/502.pdf');">  
+  <div id="controls">
+    <button onclick="prevPage();">Previous</button>
+    <button onclick="nextPage();">Next</button>
+    <input type="text" id="pageNumber" onchange="gotoPage(this.value);"
+          value="1" size="4"></input>
+    / <span id="numPages">--</span>
+    <span id="info"></span>
+  </div>
+  <div id="viewer">
+    <canvas id="canvas" width="816" height="1056"></canvas>
+  </div>
+</div>
+
+<div id="editcit">
+<%= render :partial => 'form' %>
+</div>
+
+<script text="text/javascript">
+$('#editcit').hide(25);
+$('#pdfview').hide(25);
+$('#editbutton').click(function(){
+	$('#editcit').toggle(400);
+});
+$('#showpdf').click(function(){
+	$('#pdfview').toggle(400);
+});
+</script>

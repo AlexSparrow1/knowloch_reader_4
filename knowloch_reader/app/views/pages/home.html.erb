@@ -1,0 +1,14 @@
+<h1>Knowloch Reader</h1>
+<p>
+	Welcome to the Knowloch Reader, traveller.  Let us help you read.
+</p>
+
+<div id="signin">
+<%= render :template => 'sessions/new' %>
+</div>
+
+<%= render :partial => 'users/signupform' %>
+
+<script text="text/javascript">
+$('#new_user').hide(25);
+</script>

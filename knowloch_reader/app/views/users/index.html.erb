@@ -1,0 +1,12 @@
+<h1>All of Our Friends</h1>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+	  <% if current_user.admin? %>
+	  | <%= link_to "Delete", user, :method => :delete, :confirm => "Are you certain?", :title => "Delete #{user.name}" %>
+	  <% end %>
+    </li>
+  <% end %>
+</ul>

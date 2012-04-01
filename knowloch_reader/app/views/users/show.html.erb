@@ -1,0 +1,57 @@
+<h1>Library</h1>
+<table class="profile" summary="Profile Information">
+	<tr>
+		<td class="main">
+			<h1>
+				<%= @user.name %>
+			</h1>
+			<strong>Articles: </strong><%= @user.citations.count %><br />		
+		</td>
+	</tr>
+</table>
+
+<button id="addcit">Add Article</button>
+<button id="editlink"><%= link_to "Edit Settings", edit_user_path(current_user), :remote => true %></button>
+
+<div id="edituser">
+	<%= render :partial => 'editform', :remote => true %>
+</div>
+
+<div id="showcit">
+	<table>
+		<tbody>
+		<tr>
+    		<th>Author</th>
+    		<th>Year</th>
+    		<th>Title</th>
+    		<th>Volume</th>
+    		<th>Pages</th>
+			<th>Actions</th>
+        </tr>
+		<tr id="citdata">
+  			<%= render :partial => 'shared/citation' %>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="newcit">
+	<%= render :partial => 'citations/form' %>
+</div>
+
+<script type="text/javascript">
+$("#showcit").show(10);
+$("#edituser").hide(10);
+$("#newcit").hide(10);
+$("#editlink").click(function(){
+	$("#edituser").toggle(400);
+	$("#newcit").hide(400);
+});
+$("#addcit").click(function(){
+	$("#newcit").toggle(400);
+	$("#edituser").hide(400);
+});
+$("#display").click(function(){
+	$("#showcit").toggle(400);
+});
+</script>
