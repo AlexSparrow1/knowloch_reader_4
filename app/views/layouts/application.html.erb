@@ -7,11 +7,7 @@
 		<%= stylesheet_link_tag 'viewer', :media => 'screen' %>
 	    <%= javascript_include_tag "compatibility" %>
 	    <%= javascript_include_tag "pdf" %>	
-	  <script type="text/javascript">
-	    // Specify the main script used to create a new PDF.JS web worker.
-	    // In production, change this to point to the combined `pdf.js` file.
-	    PDFJS.workerSrc = 'assets/worker_loader.js';
-	  </script>
+	  	<script type="text/javascript">PDFJS.workerSrc = 'assets/worker_loader.js';</script>
 	    <%= javascript_include_tag "viewer" %>
 		<%= render "layouts/stylesheets" %>
 		<%= csrf_meta_tags %>
